@@ -1,6 +1,7 @@
-\documentclass[aspectratio=169, xcolor={table}]{beamer} % Формат 16:9, опция xcolor передана классу
+% Добавлена опция usepdftitle=false, которая запрещает Beamer автоматически передавать верстку автора в метаданные PDF
+\documentclass[aspectratio=169, xcolor={table}, usepdftitle=false]{beamer} % Формат 16:9
 
-\usepackage{cmap} % Перенесено вверх для корректной работы поиска
+\usepackage{cmap} % Для корректного поиска и копирования кириллицы из PDF
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
@@ -10,6 +11,12 @@
 \usepackage{psfrag}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
+
+% Ручное и безопасное указание метаданных PDF без сложной верстки
+\hypersetup{
+  pdftitle={Создание интеллектуальных ассистентов для инженерных продуктов на примере узкоспециализированных предметных областей},
+  pdfauthor={Михайлов Николай Кириллович}
+}
 
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{footline}[frame number]
@@ -52,20 +59,13 @@
 \let\varsigma\sigma                                                                            
 \DeclareMathSymbol{\varphi}{\mathord}{greek}{"27}
 
-% Настройка титульного листа (использован minipage вместо tabular во избежание конфликта с colortbl)
+% Настройка титульного листа (теперь исходная таблица работает абсолютно безопасно)
 \title{Создание интеллектуальных ассистентов для инженерных продуктов на примере узкоспециализированных предметных областей}
-\author[Михайлов Н. К.]{%
-  \begin{minipage}[t]{0.35\linewidth}
-    \raggedleft
-    Студент: \\[0.3cm]
-    Научный руководитель:
-  \end{minipage}%
-  \hspace{0.03\linewidth}%
-  \begin{minipage}[t]{0.6\linewidth}
-    \raggedright
-    Михайлов Николай Кириллович, 932302 \\[0.3cm]
-    к.т.н. Пожидаев Михаил Сергеевич
-  \end{minipage}%
+\author{%
+  \begin{tabular}{rl}
+    Студент: & Михайлов Николай Кириллович, 932302 \\[0.3cm]
+    Научный руководитель: & к.т.н. Пожидаев Михаил Сергеевич
+  \end{tabular}
 }
 \date{} 
 
