@@ -1,10 +1,10 @@
 \documentclass[aspectratio=169, xcolor={table}]{beamer} % Формат 16:9, опция xcolor передана классу
 
+\usepackage{cmap} % Перенесено вверх для корректной работы
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
-\usepackage{cmap}
-\usepackage[sfdefault]{PTSans} % Векторный шрифт для предотвращения генерации шрифтов на лету
+\usepackage{PTSans} % Убрана неподдерживаемая опция [sfdefault]
 \usepackage{graphicx}
 \usepackage{xspace}
 \usepackage{psfrag}
@@ -52,13 +52,15 @@
 \let\varsigma\sigma                                                                            
 \DeclareMathSymbol{\varphi}{\mathord}{greek}{"27}
 
-% Настройка титульного листа
+% Настройка титульного листа (исправлен конфликт с colortbl и hyperref)
 \title{Создание интеллектуальных ассистентов для инженерных продуктов на примере узкоспециализированных предметных областей}
-\author{%
-  \begin{tabular}{rl}
-    Студент: & Михайлов Николай Кириллович, 932302 \\[0.3cm]
-    Научный руководитель: & к.т.н. Пожидаев Михаил Сергеевич
-  \end{tabular}
+\author[Михайлов Н. К.]{% Опция в [] убирает предупреждения hyperref в метаданных PDF
+  \vbox{% \vbox изолирует tabular от парсера Beamer и предотвращает ошибку \CT@end
+    \begin{tabular}{rl}
+      Студент: & Михайлов Николай Кириллович, 932302 \\[0.3cm]
+      Научный руководитель: & к.т.н. Пожидаев Михаил Сергеевич
+    \end{tabular}%
+  }%
 }
 \date{} 
 
