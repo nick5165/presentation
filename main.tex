@@ -1,10 +1,10 @@
 \documentclass[aspectratio=169, xcolor={table}]{beamer} % Формат 16:9, опция xcolor передана классу
 
-\usepackage{cmap} % Перенесено вверх для корректной работы
+\usepackage{cmap} % Перенесено вверх для корректной работы поиска
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
-\usepackage{PTSans} % Убрана неподдерживаемая опция [sfdefault]
+\usepackage{PTSans} % Векторный шрифт без засечек
 \usepackage{graphicx}
 \usepackage{xspace}
 \usepackage{psfrag}
@@ -52,15 +52,20 @@
 \let\varsigma\sigma                                                                            
 \DeclareMathSymbol{\varphi}{\mathord}{greek}{"27}
 
-% Настройка титульного листа (исправлен конфликт с colortbl и hyperref)
+% Настройка титульного листа (использован minipage вместо tabular во избежание конфликта с colortbl)
 \title{Создание интеллектуальных ассистентов для инженерных продуктов на примере узкоспециализированных предметных областей}
-\author[Михайлов Н. К.]{% Опция в [] убирает предупреждения hyperref в метаданных PDF
-  \vbox{% \vbox изолирует tabular от парсера Beamer и предотвращает ошибку \CT@end
-    \begin{tabular}{rl}
-      Студент: & Михайлов Николай Кириллович, 932302 \\[0.3cm]
-      Научный руководитель: & к.т.н. Пожидаев Михаил Сергеевич
-    \end{tabular}%
-  }%
+\author[Михайлов Н. К.]{%
+  \begin{minipage}[t]{0.35\linewidth}
+    \raggedleft
+    Студент: \\[0.3cm]
+    Научный руководитель:
+  \end{minipage}%
+  \hspace{0.03\linewidth}%
+  \begin{minipage}[t]{0.6\linewidth}
+    \raggedright
+    Михайлов Николай Кириллович, 932302 \\[0.3cm]
+    к.т.н. Пожидаев Михаил Сергеевич
+  \end{minipage}%
 }
 \date{} 
 
