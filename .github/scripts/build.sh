@@ -19,5 +19,5 @@ find -iname '*.png' | while read i; do
 done
 
 for i in 1 2 3; do
-    pdflatex -interaction=batchmode  main.tex
+    pdflatex -interaction=nonstopmode  main.tex
 done
