@@ -59,7 +59,7 @@
 \let\varsigma\sigma                                                                            
 \DeclareMathSymbol{\varphi}{\mathord}{greek}{"27}
 
-% Настройка титульного листа (теперь исходная таблица работает абсолютно безопасно)
+% Настройка титульного листа
 \title{Создание интеллектуальных ассистентов для инженерных продуктов на примере узкоспециализированных предметных областей}
 \author{%
   \begin{tabular}{rl}
@@ -92,21 +92,17 @@
 % --- Слайд 4 (Картинка 1) ---
 \begin{frame}
 \frametitle{Актуальность}
-\begin{figure}[h]
-    \centering
-    % Положите файл scheme4.png в папку с проектом
-    \includegraphics[width=0.9\textwidth, height=0.7\textheight, keepaspectratio]{scheme4.png}
-\end{figure}
+\begin{center}
+    \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{scheme4.png}
+\end{center}
 \end{frame}
 
 % --- Слайд 5 (Картинка 2) ---
 \begin{frame}
 \frametitle{Актуальность}
-\begin{figure}[h]
-    \centering
-    % Положите файл scheme5.png в папку с проектом
-    \includegraphics[width=0.9\textwidth, height=0.7\textheight, keepaspectratio]{scheme5.png}
-\end{figure}
+\begin{center}
+    \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{scheme5.png}
+\end{center}
 \end{frame}
 
 % --- Слайд 6 ---
@@ -181,8 +177,8 @@
 % --- Слайд 13 ---
 \begin{frame}
 \frametitle{Тестирование эмбеддеров}
-\centering
-\renewcommand{\arraystretch}{1.3} % Увеличиваем высоту строк для красоты
+\begin{center}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|}
     \hline
     \rowcolor{tabgreen} \textbf{Модель} & \textbf{Faithfulness} & \textbf{Context recall} & \textbf{Context precision} & \textbf{Answer accuracy} \\ \hline
@@ -193,43 +189,48 @@
     RuBGE & 0,61 & 0,52 & 0,24 & 0,57 \\ \hline
     Fasttext (FB) + BM25 & 0,54 & 0,46 & 0,20 & 0,52 \\ \hline
     Fasttext (RV) + BM25 & 0,59 & 0,42 & 0,21 & 0,51 \\ \hline
-\end{tabular}
+\end{tabular}%
+}
+\end{center}
 \end{frame}
 
 % --- Слайд 14 ---
 \begin{frame}
 \frametitle{Сравнение языковых моделей в роли генератора}
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|p{5cm}|p{3cm}|}
+\begin{center}
+\resizebox{0.65\textwidth}{!}{%
+\begin{tabular}{|l|c|}
     \hline
     \rowcolor{tabgreen} \textbf{Модель} & \textbf{Faithfulness} \\ \hline
     Qwen-4b-instruct & 0,59 \\ \hline
     gpt-oss-20b & 0,76 \\ \hline
     Deepseek v3.2 & 0,87 \\ \hline
-\end{tabular}
+\end{tabular}%
+}
+\end{center}
 \end{frame}
 
 % --- Слайд 15 ---
 \begin{frame}
 \frametitle{Оптимизация результатов: Reranking}
-\centering
-\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|}
     \hline
     \rowcolor{tabgreen} \textbf{Модель} & \textbf{Faithfulness} & \textbf{Context recall} & \textbf{Context precision} & \textbf{Answer accuracy} \\ \hline
     BGE-M3 & 0,76 & 0,63 & 0,30 & 0,60 \\ \hline
     BGE-M3 + Reranker & 0,76 & 0,69 & 0,43 & 0,75 \\ \hline
-\end{tabular}
+\end{tabular}%
+}
+\end{center}
 \end{frame}
 
 % --- Слайд 16 ---
 \begin{frame}
 \frametitle{Итоговая оценка оптимизированной архитектуры}
-\centering
-\renewcommand{\arraystretch}{1.3}
-\small
-\begin{tabular}{|p{4.5cm}|c|c|c|c|}
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{6.5cm}|c|c|c|c|}
     \hline
     \rowcolor{tabgreen} \textbf{Конфигурация} & \textbf{Faithfulness} & \textbf{Context recall} & \textbf{Context precision} & \textbf{Answer accuracy} \\ \hline
     Qwen-4b-instruct + BGE-M3 & 0,59 & 0,61 & 0,31 & 0,58 \\ \hline
@@ -237,7 +238,9 @@
     gpt-oss-20b + BGE-M3 + Reranker & 0,76 & 0,69 & 0,46 & 0,75 \\ \hline
     gpt-oss-20b + BGE-M3 + Reranker + Rewriter & 0,77 & 0,76 & 0,52 & 0,77 \\ \hline
     Deepseek v3.2 + BGE-M3 + Reranker + Rewriter & 0,87 & 0,75 & 0,54 & 0,75 \\ \hline
-\end{tabular}
+\end{tabular}%
+}
+\end{center}
 \end{frame}
 
 % --- Слайд 17 ---
